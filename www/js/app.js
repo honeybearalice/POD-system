@@ -22,6 +22,7 @@ connectSSE((event) => {
   if (event.type === 'scrape:done') addBadge('/collect', event.imageCount);
   if (event.type === 'design:created') addBadge('/extract', 1);
   if (event.type === 'image:uploaded') addBadge('/collect', 1);
+  if (event.type === 'discovery:done') addBadge('/collect', event.totalResults);
 });
 
 function addBadge(page, count) {

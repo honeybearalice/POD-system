@@ -76,3 +76,28 @@ CREATE TABLE IF NOT EXISTS shops (
   token_expires_at DATETIME,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS discovery_jobs (
+  id TEXT PRIMARY KEY,
+  query TEXT NOT NULL,
+  platforms TEXT NOT NULL,
+  status TEXT DEFAULT 'searching',
+  total_results INTEGER DEFAULT 0,
+  error TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS discovery_results (
+  id TEXT PRIMARY KEY,
+  discovery_job_id TEXT NOT NULL,
+  platform TEXT NOT NULL,
+  product_url TEXT NOT NULL,
+  title TEXT,
+  thumbnail_url TEXT,
+  price TEXT,
+  reviews_count INTEGER,
+  sales_count INTEGER,
+  rating REAL,
+  rank INTEGER,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

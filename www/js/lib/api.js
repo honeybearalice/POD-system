@@ -81,6 +81,12 @@ export async function getStorage() { return get('/product/storage'); }
 export async function resetAll() { return post('/product/reset', {}); }
 export async function generateThumbnails() { return post('/product/generate-thumbnails', {}); }
 
+// Discovery
+export async function discover(query, platforms, page) { return post('/discovery', { query, platforms, page }); }
+export async function pollDiscovery(id) { return get(`/discovery/${id}`); }
+export async function getPresets() { return get('/discovery/presets'); }
+export async function batchScrapeDiscovery(jobId, resultIds) { return post(`/discovery/${jobId}/scrape`, { resultIds }); }
+
 // SSE
 export function connectSSE(onEvent) {
   const es = new EventSource(`${API}/events`);

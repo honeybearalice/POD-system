@@ -32,6 +32,7 @@ app.use('/api/mockup', require('./src/routes/mockup'));
 app.use('/api/title', require('./src/routes/title'));
 app.use('/api/listing', require('./src/routes/listing'));
 app.use('/api/product', require('./src/routes/product'));
+app.use('/api/discovery', require('./src/routes/discovery'));
 app.use('/api/events', require('./src/routes/events'));
 
 // Health check
